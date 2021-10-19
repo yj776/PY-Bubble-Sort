@@ -1,17 +1,18 @@
-def bubble_sort(test_list):
+def bubble_sort(lst):
 
-    swapped = True
+    for i in range(len(lst)):
+        swapped = False
+        # print(f"iteration {i}")
+        for j in range(len(lst) - 1):
+            # print(f"comparing {lst[j], lst[j+1]}")
+            if lst[j] > lst[j+1]:
+                lst[j], lst[j+1] = lst[j+1], lst[j]
+                swapped = True
 
-    while(swapped):
-        swapped=False
-
-        for i in range(len(test_list)-1):
-            for j in range(len(test_list) - 1):
-                if test_list[j] > test_list[j+1]:
-                    test_list[j], test_list[j+1] = test_list[j+1], test_list[j]
-                    swapped = True
+        if not swapped:
+            return
         
-        return test_list
+    return lst
 
 # Code to test function
 sample_list = [1, 5, 2, 6, 7]
